@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+  font-size: 18px;
+  text-decoration: underline;
+
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: white !important;
+  background-color: rgb(231, 236, 240);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 30px !important;
+  font-weight: bold;
+}
