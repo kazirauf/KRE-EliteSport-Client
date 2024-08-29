@@ -1,5 +1,5 @@
+import FAQ from "../Components/FAQ";
 import FeaturedFacilities from "../Components/FeaturedFacilities";
-import Gallery from "../Components/Gallery";
 import Hero from "../Components/Hero";
 import HowItWorks from "../Components/HowItWorks";
 import Testimonials from "../Components/Testimonials";
@@ -11,7 +11,7 @@ const Home = () => {
       <FeaturedFacilities />
       <HowItWorks />
       <Testimonials />
-      <Gallery />
+      <FAQ></FAQ>
     </div>
   );
 };
