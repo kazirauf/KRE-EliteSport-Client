@@ -71,27 +71,18 @@ const Facilities = () => {
 
   return (
     <div>
-      <div
-        className="h-[200px] bg-cover bg-center grayscale"
-        style={{
-          backgroundImage: `url("https://media.istockphoto.com/id/1188462138/photo/variety-of-sport-accessories-on-wooden-surface.jpg?s=612x612&w=0&k=20&c=y2l7DYNkxbVteZy-Kx_adCzm-soTRbiEypje4j8ENe0=")`,
-        }}
-      >
-        <div className="h-full w-full flex items-center justify-center bg-black bg-opacity-50">
-          <h1 className="text-white text-5xl">Facilities</h1>
-        </div>
-      </div>
+    <h1 className="text-center text-4xl font-bold mt-20">Our <span className="text-blue-500">Facilities</span></h1>
 
       <div className="bg-[#F5EDED]">
         <div className="py-20">
           <div className="max-w-screen-xl mx-auto mb-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
             <select
-              className="px-5 outline-none rounded-lg text-lg font-bold text-gray-700"
+              className="px-5 outline-none rounded-lg text-lg font-bold text-black border-x-2 border-y border-black shadow-xl"
               value={priceRange}
               onChange={(e) => setPriceRange(e.target.value)}
             >
               <option value="" disabled>
-                Filter by Price Per Hour
+                Filter by Price 
               </option>
               <option value="">All Prices</option>
               {getPriceRanges().map((range, index) => (
@@ -103,7 +94,7 @@ const Facilities = () => {
 
             <form onSubmit={(e) => e.preventDefault()}>
               <Input
-                color="orange"
+                color="black"
                 label="Search Facility"
                 icon={<IoSearchSharp size={"20"} className="font-bold" />}
                 value={searchQuery}
@@ -125,21 +116,21 @@ const Facilities = () => {
                   <img
                     src={facility.image}
                     alt="Facility Photo"
-                    className="h-[200px] w-full"
+                    className="h-[220px] w-full"
                   />
                 </div>
 
                 <div className="mt-1 p-2">
-                  <h2 className="text-gray-800 text-center text-xl font-bold">
+                  <h2 className="text-black-800 text-center text-xl font-bold">
                     {facility.name}
                   </h2>
 
-                  <span className="text-lg flex justify-center items-center mt-4 font-bold text-gray-800 text-center">
-                    ৳ {facility.pricePerHour} per hour
+                  <span className="text-lg flex justify-center items-center mt-4 text-black-800 text-center">
+                    <span className="font-bold text-blue-500 mr-1 text-xl">${facility.pricePerHour} </span> Per Hour
                   </span>
 
                   <Link
-                    className="mt-5 text-white flex justify-center items-center gap-3 font-bold rounded-xl bg-button p-2 hover:bg-button-dark"
+                    className="mt-5 text-white flex justify-center items-center gap-3 font-bold  bg-black p-2 hover:bg-white hover:border-2 hover:border-black hover:text-black"
                     to={`/facilities/${facility._id}`}
                   >
                     View Details
@@ -157,7 +148,7 @@ const Facilities = () => {
             <button
               disabled={currentPage === 1}
               onClick={() => handlePageChange(currentPage - 1)}
-              className="mx-2 px-4 py-2 bg-button text-white rounded disabled:opacity-50"
+              className="mx-2 px-4 py-2 bg-black p-2 hover:bg-white hover:border-2 hover:border-black hover:text-black text-white rounded disabled:opacity-20"
             >
               Previous
             </button>
@@ -165,9 +156,9 @@ const Facilities = () => {
               <button
                 key={pageNumber}
                 onClick={() => handlePageChange(pageNumber + 1)}
-                className={`mx-2 px-4 py-2 rounded ${
+                className={`mx-2 px-4 py-2  ${
                   currentPage === pageNumber + 1
-                    ? "bg-button text-white"
+                    ? "bg-black text-white"
                     : "bg-gray-300 text-gray-800"
                 }`}
               >
@@ -177,7 +168,7 @@ const Facilities = () => {
             <button
               disabled={currentPage === totalPages}
               onClick={() => handlePageChange(currentPage + 1)}
-              className="mx-2 px-4 py-2 bg-button text-white rounded disabled:opacity-50"
+              className="mx-2 px-4 py-2  bg-black p-2 hover:bg-white hover:border-2 hover:border-black hover:text-black text-white rounded disabled:opacity-20"
             >
               Next
             </button>
