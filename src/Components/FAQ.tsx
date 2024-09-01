@@ -4,7 +4,7 @@ const FAQ = () => {
     return (
      <section>
          <h1 className="text-center text-4xl font-bold mt-20">F<span className="text-blue-500">A</span>Q</h1>
-           <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 container mx-auto my-20'>
+           <div className='flex justify-center items-center mx-auto my-20'>
             <div className="box">
    <p className="heading text-lg font-bold">Sample FAQ Questions</p>
    <div className="faqs">

@@ -17,7 +17,7 @@ const Navbar = () => {
   const user = useAppSelector(selectCurrentUser);
 
   return (
-    <div className="flex justify-between items-center bg-black py-3 px-10 md:px-10 lg:px-20 shadow-xl sticky top-0 z-20 text-white">
+    <div className="flex justify-between items-center bg-black py-3 px-10 md:px-10 lg:px-20 lg:text-white md:text-white shadow-xl sticky top-0 z-20 ">
       <h1 className="text-xl text-white font-bold py-3">KRE Elite Sport</h1>
 
       <div className="hidden md:hidden lg:flex gap-7 justify-center items-center text-base font-bold">

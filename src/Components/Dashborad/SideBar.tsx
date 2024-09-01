@@ -1,7 +1,10 @@
-import { List, ListItemPrefix } from "@material-tailwind/react";
-import { FaCalendarCheck, FaPowerOff } from "react-icons/fa";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { MdDashboard } from "react-icons/md";
+import { List,} from "@material-tailwind/react";
+import icon1 from "../../assets/overveiw.png";
+import icon2 from "../../assets/management.png";
+import icon3 from "../../assets/booking.png";
+import icon4 from "../../assets/admin.png";
+import icon5 from "../../assets/back.png";
+import icon6 from "../../assets/logout.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/hooks";
 import {
@@ -12,9 +15,6 @@ import {
 import toast from "react-hot-toast";
 import { jwtDecode } from "jwt-decode";
 import { CustomJwtPayload } from "../../Types/Types";
-import { BsBuildingFillAdd } from "react-icons/bs";
-import { RiAdminFill } from "react-icons/ri";
-
 const Sidebar = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -33,12 +33,9 @@ const Sidebar = () => {
     <div>
       <div className="hidden md:hidden lg:block">
         <div>
-          <div className="w-full max-w-[20rem] bg-[#F9FFA4] rounded-xl p-4 shadow-xl shadow-blue-gray-900/5">
+          <div className="w-full lg:h-screen max-w-[20rem] bg-black text-white  p-4 shadow-xl ">
             <div className="mb-2 p-4 flex items-center gap-3">
-              <img
-                src={"https://i.ibb.co/HN9NtYY/user.png"}
-                className="w-[60px] h-[60px] border-2 border-blue-500 rounded-full object-cover"
-              />
+            
               <h1 className="text-lg font-bold">{loggedInUser?.name}</h1>
             </div>
             <List
@@ -48,18 +45,12 @@ const Sidebar = () => {
             >
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                  isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                 }
                 to="/dashboard"
               >
-                <div className="flex p-3 font-bold">
-                  <ListItemPrefix
-                    placeholder={undefined}
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                  >
-                    <MdDashboard fontSize={"20"} />
-                  </ListItemPrefix>
+                <div className="flex p-3 items-center gap-2 font-bold">
+                <img className="w-7" src={icon1} alt="" />
                   Overview
                 </div>
               </NavLink>
@@ -68,18 +59,12 @@ const Sidebar = () => {
               {user?.role === "user" && (
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                    isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                   }
                   to="/my-bookings"
                 >
-                  <div className="flex p-3 font-bold">
-                    <ListItemPrefix
-                      placeholder={undefined}
-                      onPointerEnterCapture={undefined}
-                      onPointerLeaveCapture={undefined}
-                    >
-                      <FaCalendarCheck fontSize={"20"} />
-                    </ListItemPrefix>
+                  <div className="flex p-3 items-center gap-2 font-bold">
+                  <img className="w-7" src={icon3} alt="" />
                     My Bookings
                   </div>
                 </NavLink>
@@ -89,18 +74,12 @@ const Sidebar = () => {
               {user?.role === "admin" && (
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                    isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                   }
                   to="/facility-management"
                 >
-                  <div className="flex p-3 font-bold">
-                    <ListItemPrefix
-                      placeholder={undefined}
-                      onPointerEnterCapture={undefined}
-                      onPointerLeaveCapture={undefined}
-                    >
-                      <BsBuildingFillAdd fontSize={"20"} />
-                    </ListItemPrefix>
+                  <div className="flex p-3 items-center gap-2 font-bold">
+                  <img className="w-7" src={icon2} alt="" />
                     Facilities
                   </div>
                 </NavLink>
@@ -109,18 +88,12 @@ const Sidebar = () => {
               {user?.role === "admin" && (
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                    isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                   }
                   to="/all-bookings"
                 >
-                  <div className="flex p-3 font-bold">
-                    <ListItemPrefix
-                      placeholder={undefined}
-                      onPointerEnterCapture={undefined}
-                      onPointerLeaveCapture={undefined}
-                    >
-                      <FaCalendarCheck fontSize={"20"} />
-                    </ListItemPrefix>
+                    <div className="flex p-3 items-center gap-2 font-bold">
+                    <img className="w-7" src={icon3} alt="" />
                     All Bookings
                   </div>
                 </NavLink>
@@ -129,50 +102,34 @@ const Sidebar = () => {
               {user?.role === "admin" && (
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                    isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                   }
                   to="/add-new-admin"
                 >
-                  <div className="flex p-3 font-bold">
-                    <ListItemPrefix
-                      placeholder={undefined}
-                      onPointerEnterCapture={undefined}
-                      onPointerLeaveCapture={undefined}
-                    >
-                      <RiAdminFill fontSize={"20"} />
-                    </ListItemPrefix>
+                   <div className="flex p-3 items-center gap-2 font-bold">
+                   <img className="w-7" src={icon4} alt="" />
                     Add New Admin
                   </div>
                 </NavLink>
               )}
 
               {/* Common route */}
-              <button className="bg-transparent hover:bg-blue-100 rounded-lg">
-                <Link to={"/"} className="flex p-3 font-bold">
-                  <ListItemPrefix
-                    placeholder={undefined}
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                  >
-                    <IoMdArrowRoundBack fontSize={"20"} />
-                  </ListItemPrefix>
+              <button className="hover:bg-white hover:text-black text-white">
+                <Link to={"/"} className="flex p-3 items-center gap-2 font-bold">
+               
+                <img className="w-7" src={icon5} alt="" />
                   Back to main site
                 </Link>
               </button>
 
               <button
                 onClick={handleLogOut}
-                className="bg-transparent hover:bg-blue-100 rounded-lg"
+                className="hover:bg-white hover:text-black text-white"
               >
-                <div className="flex p-3 font-bold">
-                  <ListItemPrefix
-                    placeholder={undefined}
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                  >
-                    <FaPowerOff fontSize={"20"} />
-                  </ListItemPrefix>
-                  Log Out
+                <div className="flex p-3 items-center gap-2 font-bold">
+               
+               <img className="w-7" src={icon6} alt="" />
+                  Sign Out
                 </div>
               </button>
             </List>

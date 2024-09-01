@@ -4,14 +4,14 @@ import Sidebar from "../Components/Dashborad/SideBar";
 
 const DashboardLayout = () => {
   return (
-    <div className="py-4">
-      <div className=" w-[90%] mx-auto  ">
+    <div className="">
+      <div className="   ">
         {/* Top Banner */}
         <div
-          className="flex items-center justify-center bg-blue-500 text-white px-6 py-3.5 rounded 
-          font-[sans-serif] mb-4 pt gap-5"
+          className="flex items-center justify-center 
+          font-[sans-serif] "
         >
-          <p className="text-base">Welcome to your Dashboard</p>
+      
 
           <div className="block md:block lg:hidden cursor-pointer">
             <SideDrawer />

@@ -13,6 +13,7 @@ import { Facility } from "../../Types/Types";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { IoMdAddCircle } from "react-icons/io";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const FacilityManagement = () => {
   const { data: facilities, isLoading } = useGetAllFacilitiesQuery(undefined);
@@ -143,60 +144,81 @@ const FacilityManagement = () => {
 
   return (
     <div>
-      <div className="w-full py-2 bg-secondary rounded-lg">
-        <h1 className="text-white text-xl text-center">All Facilites</h1>
-      </div>
+    
 
       <div className="flex justify-center items-center my-5">
         <Button
           onClick={handleCreateFacilityModalOpen}
-          className="bg-button flex justify-center items-center gap-2 capitalize text-lg"
+           className="w-full text-xl p-3 bg-black text-white rounded-md hover:bg-white hover:text-black hover:border-2 hover:border-black transition duration-200"
           placeholder={undefined}
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
         >
           <IoMdAddCircle size={20} />
-          <span>Create Facility</span>
+          <span>Create A New Facility</span>
         </Button>
       </div>
-
-      <div className="mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+         
+      <h1 className="text-center text-4xl font-bold">Manage Your All <span className="text-blue-500">Facilities</span> </h1>
+      <div className="mt-7 flex justify-center flex-wrap gap-10">
         {currentData?.map((item: any, index: number) => (
-          <div
-            key={index}
-            className="rounded-xl p-3 shadow-2xl hover:shadow-xl border-2 border-green-700"
-          >
-            <div className="relative flex items-end overflow-hidden rounded-xl">
-              <img
-                src={item.image}
-                alt="Hotel Photo"
-                className="h-[200px] w-full"
-              />
-            </div>
+      <div
+      key={index}
+      className="rounded-xl w-[350px] bg-[#FCF8F3] p-3 shadow-2xl hover:shadow-xl"
+    >
+      <div className="relative flex items-end overflow-hidden rounded-xl">
+        <img
+          src={item.image}
+          alt="Facility Photo"
+          className="h-[220px] w-full"
+        />
+      </div>
 
-            <div className="mt-1 p-2">
-              <h2 className="text-gray-800 text-center text-xl font-bold">
-                {item.name}
-              </h2>
+      <div className="mt-1 p-2">
+        <h2 className="text-black-800 text-center text-xl font-bold">
+          {item.name}
+        </h2>
 
-              <span className="text-lg flex justify-center items-center mt-4 font-bold text-gray-800 text-center">
-                ৳ {item.pricePerHour} per hour
-              </span>
-            </div>
+        <span className="text-lg flex justify-center items-center  text-black-800 text-center">
+          <span className="font-bold text-blue-500 mr-1 text-2xl mt-4">${item.pricePerHour} </span> Per Hour
+        </span>
 
-            <div onClick={() => handleOpen(item)}>
-              <button className="w-full rounded-lg bg-button p-2 px-3 text-center text-sm font-semibold text-white outline-none transition duration-100 hover:bg-button-dark sm:flex-none md:text-base">
-                Edit
-              </button>
-            </div>
-
-            <button
-              onClick={() => handleDeleteFacility(item._id)}
-              className="w-full mt-3 rounded-lg bg-red-700 p-2 px-3 text-center text-sm font-semibold text-white outline-none transition duration-100 sm:flex-none md:text-base"
-            >
-              Delete
-            </button>
-          </div>
+        <Link
+          className="mt-5 mb-3 text-white flex justify-center items-center gap-3 font-bold  bg-black p-2 hover:bg-white hover:border-2 hover:border-black hover:text-black"
+          to={`/facilities/${item._id}`}
+        >
+          View Details
+        </Link>
+        <div className="flex justify-around">
+        <Button
+                
+                onClick={() => handleOpen(item)}
+                size="sm"
+                className="capitalize bg-transparent"
+                placeholder={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
+                <img className="w-12" src="https://raw.githubusercontent.com/kazirauf/pure-planet-client/main/src/assets/icons8-edit.gif" alt="" />
+               <h2 className="text-base text-lime-600">Update</h2>
+              </Button>
+              <Button
+               onClick={() => handleDeleteFacility(item._id)}
+                size="sm"
+                className=" bg-transparent"
+                placeholder={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
+            <img className="w-16" src="https://raw.githubusercontent.com/kazirauf/pure-planet-client/main/src/assets/Animation%20-%201720876273691.gif" alt="" />
+            <h2 className="text-red-600 text-base">Delete</h2>
+              </Button>
+        </div>
+     
+      </div>
+    </div>
+      
+    
         ))}
       </div>
 
@@ -204,7 +226,7 @@ const FacilityManagement = () => {
         <button
           disabled={currentPage === 1}
           onClick={() => handlePageChange(currentPage - 1)}
-          className="mx-2 px-4 py-2 bg-button text-white rounded disabled:opacity-50"
+          className="mx-2 px-4 py-2 bg-black p-2 hover:bg-white hover:border-2 hover:border-black hover:text-black text-white rounded disabled:opacity-20"
         >
           Previous
         </button>
@@ -214,7 +236,7 @@ const FacilityManagement = () => {
             onClick={() => handlePageChange(pageNumber + 1)}
             className={`mx-2 px-4 py-2 rounded ${
               currentPage === pageNumber + 1
-                ? "bg-button text-white"
+                ? "bg-black text-white"
                 : "bg-gray-300 text-gray-800"
             }`}
           >
@@ -224,192 +246,226 @@ const FacilityManagement = () => {
         <button
           disabled={currentPage === totalPages}
           onClick={() => handlePageChange(currentPage + 1)}
-          className="mx-2 px-4 py-2 bg-button text-white rounded disabled:opacity-50"
+          className="mx-2 px-4 py-2 bg-black p-2 hover:bg-white hover:border-2 hover:border-black hover:text-black text-white rounded disabled:opacity-20"
         >
           Next
         </button>
       </div>
 
       {/* Update Modal */}
-      <Dialog
-        open={open}
-        size="sm"
-        handler={handleOpen}
-        placeholder={undefined}
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
+      <div>
+  <Dialog
+    open={open}
+    handler={handleOpen}
+    placeholder={undefined}
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  >
+    <div className="bg-gray-800 p-10 rounded-lg shadow-lg w-full max-w-md">
+      <h1 className="text-white text-2xl text-center font-semibold mb-6">
+        Update Your Facility {details?.name}
+      </h1>
+
+      <form
+        onSubmit={handleUpdateFacility}
+        className="space-y-4"
       >
-        <div className="p-4">
-          <h1 className="text-center text-lg text-gray-700">
-            Update details for {details?.name}
-          </h1>
-
-          <form
-            onSubmit={handleUpdateFacility}
-            className="mt-5 flex flex-col gap-5"
-          >
-            <Input
-              defaultValue={details?.name}
-              onChange={(e) => setName(e.target.value)}
-              label="Facility Name"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-              crossOrigin={undefined}
-            />
-
-            <Textarea
-              defaultValue={details?.description}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              label="Description"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            />
-
-            <Input
-              type="number"
-              defaultValue={details?.pricePerHour}
-              value={pricePerHour}
-              onChange={(e) => setPricePerHour(Number(e.target.value))}
-              label="Price per hour"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-              crossOrigin={undefined}
-            />
-
-            <Input
-              defaultValue={details?.location}
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              label="Location"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-              crossOrigin={undefined}
-            />
-
-            <Input
-              defaultValue={details?.image}
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              label="Image"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-              crossOrigin={undefined}
-            />
-
-            <Button
-              disabled={isUpdateFacilityLoading}
-              type="submit"
-              className="bg-button"
-              placeholder={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            >
-              {isUpdateFacilityLoading ? (
-                <div className="flex gap-3 justify-center items-center text-2xl">
-                  <div className="animate-spin ">
-                    <TbFidgetSpinner />
-                  </div>
-                  <span className="text-lg">Please Wait</span>
-                </div>
-              ) : (
-                "Update"
-              )}
-            </Button>
-          </form>
+        <div>
+          <label className="block text-white mb-1">Facility Name</label>
+          <Input
+            defaultValue={details?.name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter facility name"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+            crossOrigin={undefined}
+          />
         </div>
-      </Dialog>
+
+        <div>
+          <label className="block text-white mb-1">Description</label>
+          <Textarea
+            defaultValue={details?.description}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter facility description"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          />
+        </div>
+
+        <div>
+          <label className="block text-white mb-1">Price per hour</label>
+          <Input
+            type="number"
+            defaultValue={details?.pricePerHour}
+            value={pricePerHour}
+            onChange={(e) => setPricePerHour(Number(e.target.value))}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter price per hour"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+            crossOrigin={undefined}
+          />
+        </div>
+
+        <div>
+          <label className="block text-white mb-1">Location</label>
+          <Input
+            defaultValue={details?.location}
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter location"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+            crossOrigin={undefined}
+          />
+        </div>
+
+        <div>
+          <label className="block text-white mb-1">Image</label>
+          <Input
+            defaultValue={details?.image}
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter image URL"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+            crossOrigin={undefined}
+          />
+        </div>
+
+        <Button
+          disabled={isUpdateFacilityLoading}
+          type="submit"
+          className="mt-5 text-white flex justify-center items-center gap-3 font-bold  bg-black py-3 px-4 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black"
+          placeholder={undefined}
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        >
+          {isUpdateFacilityLoading ? (
+              <button   className="w-full py-2 px-5 bg-black text-white rounded-md hover:bg-white hover:text-black hover:border-2 hover:border-black transition duration-200">Loading...</button>
+          ) : (
+            "Update Your Facility"
+          )}
+        </Button>
+      </form>
+    </div>
+  </Dialog>
+</div>
+
 
       {/* Create Modal */}
-      <Dialog
-        open={openCreateFacilityModal}
-        size="sm"
-        handler={handleCreateFacilityModalOpen}
-        placeholder={undefined}
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
+      <div>
+  <Dialog
+    open={openCreateFacilityModal}
+    handler={handleCreateFacilityModalOpen}
+    placeholder={undefined}
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
+  >
+    <div className="bg-gray-800 p-10 rounded-lg shadow-lg w-full max-w-md">
+      <h1 className="text-white text-2xl text-center font-semibold mb-6">
+        Add A New Facility
+      </h1>
+
+      <form
+        onSubmit={handleCreateFacility}
+        className="space-y-4"
       >
-        <div className="p-4">
-          <h1 className="text-center text-lg text-gray-700">
-            Create New Facility
-          </h1>
-
-          <form
-            onSubmit={handleCreateFacility}
-            className="mt-5 flex flex-col gap-5"
-          >
-            <Input
-              required
-              value={newName}
-              onChange={(e) => setNewName(e.target.value)}
-              label="Facility Name"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-              crossOrigin={undefined}
-            />
-
-            <Textarea
-              required
-              value={newDescription}
-              onChange={(e) => setNewDescription(e.target.value)}
-              label="Description"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            />
-
-            <Input
-              required
-              type="number"
-              value={newPricePerHour}
-              onChange={(e) => setNewPricePerHour(Number(e.target.value))}
-              label="Price per hour"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-              crossOrigin={undefined}
-            />
-
-            <Input
-              required
-              value={newLocation}
-              onChange={(e) => setNewLocation(e.target.value)}
-              label="Location"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-              crossOrigin={undefined}
-            />
-
-            <Input
-              required
-              value={newImage}
-              onChange={(e) => setNewImage(e.target.value)}
-              label="Image"
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-              crossOrigin={undefined}
-            />
-
-            <Button
-              disabled={isCreateFacilityLoading}
-              type="submit"
-              className="bg-button"
-              placeholder={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            >
-              {isCreateFacilityLoading ? (
-                <div className="flex gap-3 justify-center items-center text-2xl">
-                  <div className="animate-spin ">
-                    <TbFidgetSpinner />
-                  </div>
-                  <span className="text-lg">Please Wait</span>
-                </div>
-              ) : (
-                "Create"
-              )}
-            </Button>
-          </form>
+        <div>
+          <label className="block text-white mb-1">Facility Name</label>
+          <Input
+            required
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter facility name"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+            crossOrigin={undefined}
+          />
         </div>
-      </Dialog>
+
+        <div>
+          <label className="block text-white mb-1">Description</label>
+          <Textarea
+            required
+            value={newDescription}
+            onChange={(e) => setNewDescription(e.target.value)}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter facility description"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+          />
+        </div>
+
+        <div>
+          <label className="block text-white mb-1">Price per hour</label>
+          <Input
+            required
+            type="number"
+            value={newPricePerHour}
+            onChange={(e) => setNewPricePerHour(Number(e.target.value))}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter price per hour"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+            crossOrigin={undefined}
+          />
+        </div>
+
+        <div>
+          <label className="block text-white mb-1">Location</label>
+          <Input
+            required
+            value={newLocation}
+            onChange={(e) => setNewLocation(e.target.value)}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter location"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+            crossOrigin={undefined}
+          />
+        </div>
+
+        <div>
+          <label className="block text-white mb-1">Image</label>
+          <Input
+            required
+            value={newImage}
+            onChange={(e) => setNewImage(e.target.value)}
+            className="w-full bg-gray-700 text-white border border-gray-600 rounded"
+            placeholder="Enter image URL"
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
+            crossOrigin={undefined}
+          />
+        </div>
+
+        <Button
+          disabled={isCreateFacilityLoading}
+          type="submit"
+           className="mt-5 text-white flex justify-center items-center gap-3 font-bold  bg-black py-3 px-4 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black"
+          placeholder={undefined}
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        >
+          {isCreateFacilityLoading ? (
+            <button   className="w-full py-2 px-5 bg-black text-white rounded-md hover:bg-white hover:text-black hover:border-2 hover:border-black transition duration-200">Loading...</button>
+          ) : (
+            "Add A New Facility"
+          )}
+        </Button>
+      </form>
+    </div>
+  </Dialog>
+</div>
+
     </div>
   );
 };

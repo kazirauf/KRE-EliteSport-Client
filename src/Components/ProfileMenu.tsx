@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { logout, selectCurrentUser } from "../Redux/Features/Auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
-import { AiOutlinePoweroff } from "react-icons/ai";
 import { useState } from "react";
 import {
   Avatar,
@@ -13,7 +12,6 @@ import {
 } from "@material-tailwind/react";
 import { BsChevronDown } from "react-icons/bs";
 import toast from "react-hot-toast";
-import { MdDashboard } from "react-icons/md";
 
 const ProfileMenu = () => {
   const user = useAppSelector(selectCurrentUser);
@@ -36,17 +34,14 @@ const ProfileMenu = () => {
   const profileMenuItems = [
     {
       label: "Dashboard",
-      icon: <MdDashboard fontSize={"20px"} />,
       action: goToDashboard,
     },
-
     {
       label: "Sign Out",
-      icon: <AiOutlinePoweroff fontSize={"20px"} />,
       action: handleLogout,
     },
   ];
-
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -65,8 +60,8 @@ const ProfileMenu = () => {
               variant="circular"
               size="sm"
               alt="tania andrew"
-              className="border border-gray-900 p-0.5"
-              src={"https://i.ibb.co/HN9NtYY/user.png"}
+              className="border-2 border-white p-0.5"
+              src={"https://cdn-icons-png.flaticon.com/512/12484/12484179.png"}
               placeholder={undefined}
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
@@ -86,6 +81,9 @@ const ProfileMenu = () => {
           onPointerEnterCapture={undefined}
           onPointerLeaveCapture={undefined}
         >
+          <h1 className=" mt-2 ml-3 text-black font-bold flex gap-1">Name: <h1 className="text-blue-500">{user?.name}</h1></h1>
+          <h1 className=" mt-2 ml-3 text-black font-bold flex gap-1">Email: <h1 className="text-blue-500">{user?.email}</h1></h1>
+      
           {profileMenuItems.map((item, index) => (
             <MenuItem
               key={index}
@@ -94,8 +92,8 @@ const ProfileMenu = () => {
               onPointerEnterCapture={undefined}
               onPointerLeaveCapture={undefined}
             >
-              <div className="flex items-center gap-4 text-[15px] font-bold">
-                <span>{item.icon}</span>
+              <div className="flex items-center gap-4 text-[15px] text-black font-bold">
+             
                 {item.label}
               </div>
             </MenuItem>

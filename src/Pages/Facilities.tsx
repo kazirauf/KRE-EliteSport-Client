@@ -125,8 +125,8 @@ const Facilities = () => {
                     {facility.name}
                   </h2>
 
-                  <span className="text-lg flex justify-center items-center mt-4 text-black-800 text-center">
-                    <span className="font-bold text-blue-500 mr-1 text-xl">${facility.pricePerHour} </span> Per Hour
+                  <span className="text-lg flex justify-center items-center  text-black-800 text-center">
+                    <span className="font-bold text-blue-500 mr-1 mt-4 text-2xl">${facility.pricePerHour} </span> Per Hour
                   </span>
 
                   <Link

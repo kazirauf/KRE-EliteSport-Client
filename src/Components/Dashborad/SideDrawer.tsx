@@ -72,7 +72,7 @@ const SideDrawer = () => {
             >
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                  isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                 }
                 to="/dashboard"
                 onClick={closeDrawer}
@@ -94,7 +94,7 @@ const SideDrawer = () => {
                 <NavLink
                   onClick={closeDrawer}
                   className={({ isActive }) =>
-                    isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                    isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                   }
                   to="/my-bookings"
                 >
@@ -116,7 +116,7 @@ const SideDrawer = () => {
                 <NavLink
                   onClick={closeDrawer}
                   className={({ isActive }) =>
-                    isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                    isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                   }
                   to="/facility-management"
                 >
@@ -137,7 +137,7 @@ const SideDrawer = () => {
                 <NavLink
                   onClick={closeDrawer}
                   className={({ isActive }) =>
-                    isActive ? "active" : "text-lg rounded-lg hover:bg-blue-100"
+                    isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                   }
                   to="/all-bookings"
                 >
@@ -176,7 +176,7 @@ const SideDrawer = () => {
               )}
 
               {/* Common route */}
-              <button className="bg-transparent hover:bg-blue-100 rounded-lg">
+              <button className=" hover:bg-white hover:text-black text-white">
                 <Link to={"/"} className="flex p-3 font-bold">
                   <ListItemPrefix
                     placeholder={undefined}
@@ -191,7 +191,7 @@ const SideDrawer = () => {
 
               <button
                 onClick={handleLogOut}
-                className="bg-transparent hover:bg-blue-100 rounded-lg"
+                className=" hover:bg-white hover:text-black text-white"
               >
                 <div className="flex p-3 font-bold">
                   <ListItemPrefix
