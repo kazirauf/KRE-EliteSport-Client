@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import loader from "../../Assets/loader.json";
+import loader from "../../assets/loader.json";
 
 const LoaderForDashboard = () => {
   return (

@@ -4,7 +4,6 @@ import { selectCurrentUser } from "../Redux/Features/Auth/authSlice";
 import { useRegistrationMutation } from "../Redux/Features/Auth/authAPI";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
-import { TbFidgetSpinner } from "react-icons/tb";
 import "./sign.css";
 const Registration = () => {
   const user = useAppSelector(selectCurrentUser);

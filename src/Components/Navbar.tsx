@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Drawer } from "@material-tailwind/react";
 import { useState } from "react";
@@ -9,7 +9,7 @@ import ProfileMenu from "./ProfileMenu";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
+ 
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);

@@ -1,9 +1,7 @@
-import { button, Button } from "@material-tailwind/react";
+import {  Button } from "@material-tailwind/react";
 import { FormEvent, useState } from "react";
 import { useRegistrationMutation } from "../../Redux/Features/Auth/authAPI";
 import toast from "react-hot-toast";
-import { TbFidgetSpinner } from "react-icons/tb";
-
 const AddNewAdmin = () => {
   const [createAdmin, { isLoading }] = useRegistrationMutation();
 

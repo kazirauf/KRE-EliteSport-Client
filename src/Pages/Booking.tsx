@@ -7,7 +7,6 @@ import {
 } from "../Redux/Features/Facilities/facilities.api";
 import Loader from "../Utils/Loader";
 import { FormEvent, useState } from "react";
-import { TbFidgetSpinner } from "react-icons/tb";
 import { convertTo12HourFormat } from "../Utils/timeConversion";
 import toast from "react-hot-toast";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";

@@ -6,7 +6,7 @@ import {
 } from "../../Redux/Features/Bookings/bookings.api";
 import NoDataFound from "../../Utils/NoDataFound";
 import LoaderForDashboard from "./LoaderForDashboard";
-import { Dialog, Button } from "@material-tailwind/react";
+import { Dialog,} from "@material-tailwind/react";
 import { formatDate } from "../../Utils/formatDate";
 import { convertTo12HourFormat } from "../../Utils/timeConversion";
 import toast from "react-hot-toast";

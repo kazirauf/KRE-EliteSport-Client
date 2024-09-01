@@ -1,12 +1,12 @@
-# SportEase
+# KRE Elite Sport
 
 ## Introduction
 
-This project is the frontend part of an application, providing users with the ability to browse sports facility, book a facility, and proceed to checkout.
+This project is the frontend part of the KRE Elite Sport application, providing users with the ability to browse sports facilities, book a facility, and proceed to checkout.
 
 ## Project Description
 
-SportEase is a fully integrated web application designed to streamline the process of browsing, booking, and managing sports facilities. The platform features a user-friendly interface with a responsive design, enabling users to easily search for facilities, check availability, and make bookings. It includes a comprehensive user dashboard for managing bookings and an admin dashboard for facility and user management. The platform is connected to a robust backend that handles secure payments, user authentication, and data management, ensuring a seamless and intuitive user experience.
+KRE Elite Sport is a fully integrated web application designed to streamline the process of browsing, booking, and managing sports facilities. The platform features a user-friendly interface with a responsive design, enabling users to easily search for facilities, check availability, and make bookings. It includes a comprehensive user dashboard for managing bookings and an admin dashboard for facility and user management. The platform is connected to a robust backend that handles secure payments, user authentication, and data management, ensuring a seamless and intuitive user experience.
 
 ## Features
 
@@ -38,37 +38,4 @@ SportEase is a fully integrated web application designed to streamline the proce
 1. **Clone the repository**
 
    ```sh
-   https://github.com/yasin-arafat-389/SportEase-Client
-   ```
-
-   2. **Navigate to the project directory**
-
-   ```sh
-   cd SportEase-Client
-
-   ```
-
-   3. **Install the dependencies**
-
-   ```sh
-   npm install
-   ```
-
-### Configuration
-
-1.  **Replace base URL according to your local machine**
-
-```sh
-const baseQuery = fetchBaseQuery({
-baseUrl: "http://localhost:5000/api",
-});
-```
-
-## Usage
-
-1.  **Start the development server**
-
-```sh
-npm run dev
-
-```
+   https://github.com/your-username/KRE-Elite-Sport
