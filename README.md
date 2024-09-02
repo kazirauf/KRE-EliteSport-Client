@@ -38,4 +38,4 @@ KRE Elite Sport is a fully integrated web application designed to streamline the
 1. **Clone the repository**
 
    ```sh
-   https://github.com/your-username/KRE-Elite-Sport
+   git clone https://github.com/kazirauf/KRE-EliteSport-Client
