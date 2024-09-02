@@ -8,7 +8,8 @@ import { useState } from "react";
 
 const Facilities = () => {
   const { data: facilities, isLoading } = useGetAllFacilitiesQuery(undefined);
-
+       console.log(facilities);
+       
   const [currentPage, setCurrentPage] = useState(1);
   const [priceRange, setPriceRange] = useState<string>("");
 
