@@ -1,4 +1,8 @@
 # KRE Elite Sport
+[Live URL](https://kre-elite-sport.vercel.app/)
+
+KRE Elite Sport Server Side Github Repo
+[Live URL](https://github.com/kazirauf/KRE-Elite-Sport-Backend)
 
 ## Introduction
 
