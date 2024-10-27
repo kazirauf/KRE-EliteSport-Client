@@ -1,3 +1,4 @@
+import DemoCard from "../Components/DemoCard";
 import FAQ from "../Components/FAQ";
 import FeaturedFacilities from "../Components/FeaturedFacilities";
 import Hero from "../Components/Hero";
@@ -9,6 +10,7 @@ const Home = () => {
     <div className="bg-[#F5EDED]">
       <Hero />
       <FeaturedFacilities />
+      <DemoCard></DemoCard>
       <HowItWorks />
       <Testimonials />
       <FAQ></FAQ>
