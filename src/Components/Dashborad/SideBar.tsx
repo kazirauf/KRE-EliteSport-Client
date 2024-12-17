@@ -47,7 +47,19 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
                 }
-                to="/dashboard"
+               to="/profile"
+              >
+                <div className="flex p-3 items-center gap-2 font-bold">
+                <img className="w-7" src="https://cdn-icons-png.flaticon.com/512/8847/8847419.png" alt="" />
+                 My Profile
+                </div>
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "active" : "text-lg hover:bg-white hover:text-black text-white"
+                }
+               
+                 to="/dashboard"
               >
                 <div className="flex p-3 items-center gap-2 font-bold">
                 <img className="w-7" src={icon1} alt="" />

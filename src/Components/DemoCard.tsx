@@ -57,7 +57,7 @@ const DemoCard: React.FC = () => {
                     className="mt-5 text-white flex justify-center items-center gap-3 font-bold  bg-black p-2 hover:bg-white hover:border-2 hover:border-black hover:text-black"
                     to={`/facilities/${facility._id}`}
                   >
-                    View Details
+                    Booking Now
                   </Link>
                 </div>
               </div>

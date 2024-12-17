@@ -38,12 +38,38 @@ const Login = () => {
   if (user) {
     return <Navigate to={"/"} />;
   }
+  const openModal = () => {
+    const modal = document.getElementById('my_modal_5') as HTMLDialogElement | null;
+    modal?.showModal();
+  };
 
   return (
     <div className="container">
       <div className="forms-container">
         <div className="signin-signup">
           <form onSubmit={handleSubmit} action="#" className="sign-in-form">
+          <p onClick={openModal}>
+        Demo Admin & User Credential 
+          <span className="text-blue-500 font-bold text-lg underline ml-2">View</span>
+      </p>
+      
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello User</h3>
+        <div className="my-5">
+        <p className="">Admin Email Address <span className="text-blue-500">kllu@mallu.com</span></p>
+          <p className="">Admin Password <span className="text-blue-500">123</span></p>
+          <p className="">Admin Email Address <span className="text-blue-500">user12@gmail.com</span></p>
+          <p className="">Admin Password <span className="text-blue-500">123</span></p>
+        </div>
+          <div className="modal-action">
+            <form method="dialog">
+              {/* If there is a button in the form, it will close the modal */}
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
@@ -85,8 +111,9 @@ const Login = () => {
         <div className="panel left-panel">
           <div className="content">
             <h3>New here?</h3>
-            <p>
-            So go to sign up and create a new account and join with us
+            <p  >
+              
+            Already have an account? Sign in to log into your account and join us!
             </p>
             <Link
                   to={"/registration"}

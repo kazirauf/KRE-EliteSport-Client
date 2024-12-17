@@ -2,7 +2,7 @@ import '../index.css'
 
 const Testimonials = () => {
   return (
-    <section className="section__container ">
+    <section className="section__container bg-white">
    <h1 className="text-center text-4xl font-bold mt-20">Customer <span className="text-blue-500">Testimonials</span></h1>
   <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
     <div className="section__card">

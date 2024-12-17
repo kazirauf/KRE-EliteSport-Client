@@ -1,6 +1,6 @@
 const HowItWorks = () => {
   return (
-    <>
+    <div className="bg-white">
   <h1 className="text-center text-4xl font-bold mt-20">How It <span className="text-blue-500">Works</span></h1>
     <div className="hero bg-base-200  mt-10">
   <div className="hero-content flex-col lg:flex-row ">
@@ -38,7 +38,7 @@ const HowItWorks = () => {
     </div>
   </div>
 </div>
-  </>
+  </div>
   
     // <div className="mt-9 pb-20">
     //   <div className="mb-4 flex items-center justify-center gap-8 sm:mb-8 md:mb-5">

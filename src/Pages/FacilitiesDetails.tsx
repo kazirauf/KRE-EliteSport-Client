@@ -27,7 +27,7 @@ const FacilitiesDetails = () => {
     <div className="product-info">
       <div className="product-text">
         <h1>{facility?.data?.name}</h1>
-        <h2>{facility?.data?.location}</h2>
+        <h2 >{facility?.data?.location}</h2>
         <p>
         {facility?.data?.description}
         </p>

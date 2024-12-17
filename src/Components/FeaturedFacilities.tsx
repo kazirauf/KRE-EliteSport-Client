@@ -1,6 +1,6 @@
 const FeaturedFacilities = () => {
   return (
-  <>
+  <div className="bg-white">
   <h1 className="text-center text-4xl font-bold">Our <span className="text-blue-500">Featured</span> Facilities</h1>
     <section className="flex justify-center mt-10">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
@@ -48,7 +48,7 @@ const FeaturedFacilities = () => {
 </div>
     </div>
     </section>
-  </>
+  </div>
   
   );
 };

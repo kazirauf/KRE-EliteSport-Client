@@ -17,6 +17,7 @@ import MyBookings from "../Pages/Dashboard/MyBookings";
 import FacilityManagement from "../Pages/Dashboard/FacilityManagement";
 import ViewAllBookings from "../Pages/Dashboard/ViewAllBookings";
 import AddNewAdmin from "../Pages/Dashboard/AddNewAdmin";
+import Profile from "../Pages/Dashboard/Profile";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Overview />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+      <Profile></Profile>
           </PrivateRoute>
         ),
       },
